@@ -3,5 +3,4 @@
 
 #### USAGE - Using Command Line
 
-    $ python resize_img_for_dataset.py --dir='input_dir' --o='output_dir'
-
+    $ python img_resize_write.py --dir='input_dir' --o='output_dir'
