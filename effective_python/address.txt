@@ -1,0 +1,6 @@
+Four score and seven years ago...
+
+Hi, I used a pre-trained VGG network as a feature extractor and compute L1Loss between VGG features of two images. Before, i implement this by zero gradients of VGG each time.
+But today, I saw an implementation which set require_gradients= False . I am curious that if require_dradient is False, how do the gradients backpropagate to the network before VGG? Is gradients of VGG being zeroed after each backpropagation?
+
+Here are the part of the codes.
