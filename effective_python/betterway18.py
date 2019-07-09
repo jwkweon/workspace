@@ -39,3 +39,6 @@ def log(sequence, message, *values):
     else:
         value_str = ', '.join(str(x) for x in values)
         print('%s: %s: %s' % (sequence, message, value_str))
+
+log(1, 'Favorites', 7, 33)
+log('Favorites', 7, 33)
