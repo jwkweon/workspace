@@ -1,4 +1,4 @@
-################                 BetterWay 18                 ################
+################                 BetterWay 19                 ################
 # 키워드 인수로 선택적인 동작을 제공하자
 def remainder(number, divisor):
     return number % divisor

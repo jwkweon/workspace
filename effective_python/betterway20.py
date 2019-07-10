@@ -1,4 +1,4 @@
-################                 BetterWay 18                 ################
+################                 BetterWay 20                 ################
 # 동적 기본 인수를 지정하려면 None과 docstring을 사용하자
 from datetime import datetime
 import time
