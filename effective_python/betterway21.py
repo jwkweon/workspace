@@ -17,7 +17,6 @@ def safe_division(number, divisor, ignore_overflow,
 
 result = safe_division(1, 10**500, True, False)
 print(result)
-
 result = safe_division(1, 0, False, True)
 print(result)
 
@@ -39,7 +38,6 @@ def safe_division_b(number, divisor,
 
 result = safe_division_b(1, 10**500, ignore_overflow=True)
 print(result)
-
 result = safe_division_b(1, 0, ignore_zero_division=True)
 print(result)
 
@@ -67,3 +65,9 @@ try:
     safe_division_c(1, 0)
 except ZeroDivisionError:
     pass
+
+def print_args(*args, **kwargs):
+    print('Positional :', args)
+    print('Keyword    :', kwargs)
+
+print_args(1, 2, foo='bar', stuff='meep')
