@@ -126,3 +126,14 @@ class GradeBook(object):
         if name not in self._students:
             self._students[name] = Student()
         return self._students[name]
+
+book = GradeBook()
+albert = book.student('Albert Einstein')
+math = albert.subject('Math')
+math.report_grade(80, 0.10)
+math.report_grade(70, 0.20)
+gym = albert.subject('Gym')
+gym.report_grade(90, 0.30)
+gym.report_grade(80, 0.50)
+
+print(albert.average_grade())
