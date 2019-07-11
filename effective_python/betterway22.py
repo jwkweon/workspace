@@ -87,6 +87,8 @@ print(book._grades)
 import collections
 
 Grade = collections.namedtuple('Grade', ('score', 'weight'))
+#Grade(10, 20).score
+#Grade(10, 0.1).weight
 
 class Subject(object):
     def __init__(self):
