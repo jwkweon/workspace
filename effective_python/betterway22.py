@@ -85,3 +85,5 @@ book.average_grade('Albert Einstein')
 print(book._grades)
 
 import collections
+
+Grade
