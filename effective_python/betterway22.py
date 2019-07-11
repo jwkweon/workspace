@@ -83,3 +83,5 @@ book.report_grade('Albert Einstein', 'Gym', 90, 1.0)
 book.report_grade('Albert Einstein', 'Gym', 80, 0.0)
 book.average_grade('Albert Einstein')
 print(book._grades)
+
+import collections
