@@ -25,3 +25,31 @@ print('Before:', dict(result))
 for key, amount in increments:
     result[key] += amount
 print('After: ', dict(result))
+
+int_dict = defaultdict(int)
+int_dict
+int_dict['key1']
+int_dict
+int_dict['key2'] = 'test'
+int_dict
+
+list_dict = defaultdict(list)
+list_dict
+list_dict['key1']
+list_dict
+list_dict['key2'] = 'test'
+list_dict
+
+def increment_with_report(current, increments):
+    added_count = 0
+
+    def missing():
+        nonlocal added_count
+        added_count += 1
+        return 0
+
+    result = defaultdict(missing, current)
+    for key, amount in increments:
+        result[key] += amount
+
+    return result, added_count
