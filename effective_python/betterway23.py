@@ -53,3 +53,15 @@ def increment_with_report(current, increments):
         result[key] += amount
 
     return result, added_count
+
+result, count = increment_with_report(current, increments)
+assert count == 2
+print(result, count)
+
+class CountMissing(object):
+    def __init__(self):
+        self.added = 0
+
+    def missing(self):
+        self.added += 1
+        return 0
