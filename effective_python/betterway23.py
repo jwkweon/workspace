@@ -65,3 +65,30 @@ class CountMissing(object):
     def missing(self):
         self.added += 1
         return 0
+
+counter = CountMissing()
+result = defaultdict(counter.missing, current)
+
+for key, amount in increments:
+    result[key] += amount
+
+assert counter.added == 2
+
+class BetterCountMissing(object):
+    def __init__(self):
+        self.added = 0
+
+    def __call__(self):
+        self.added += 1
+        return 0
+
+counter = BetterCountMissing()
+counter()
+assert callable(counter)
+
+counter = BetterCountMissing()
+result = defaultdict(counter, current)
+for key, amount in increments:
+    result[key] += amount
+
+assert counter.added == 2
