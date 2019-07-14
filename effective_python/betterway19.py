@@ -9,8 +9,11 @@ a1 = remainder(20, 7)
 a2 = remainder(20, divisor=7)
 a3 = remainder(number=20, divisor=7)
 a4 = remainder(divisor=7, number=20)
-#remainder(divisor=7, 20) 이건 안됨
+
+#remainder(divisor=7, 20)
 #위치 인수는 키워드 인수 앞에 지정해야함
+#remainder(20, number=7)
+#각 인수는 한번만 지정할 수 있다.
 
 print(a1, a2, a3, a4)
 
