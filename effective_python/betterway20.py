@@ -26,6 +26,8 @@ log('Hi there')
 time.sleep(0.1)
 log('Hi again!')
 
+print(repr(log.__doc__))
+
 def decode(data, default={}):
     try:
         return json.loads(data)
