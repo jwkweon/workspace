@@ -52,3 +52,21 @@ print('Second ordering still is', foo.value)
     다이아몬드 상속은 공통 슈퍼클래스의 __init__ 메서드를 여러 번 실행하게 해서
     예기치 못한 동작을 일으킨다.
 '''
+
+class TimesFive(MyBaseClass):
+    def __init__(self, value):
+        MyBaseClass.__init__(self, value)
+        self.value *= 5
+
+class PlusTwo(MyBaseClass):
+    def __init__(self, value):
+        MyBaseClass.__init__(self, value)
+        self.value += 2
+
+class ThisWay(TimesFive, PlusTwo):
+    def __init__(self, value):
+        TimesFive.__init__(self, value)
+        PlusTwo.__init__(self, value)
+
+foo = ThisWay(5)
+print('Should be (5 * 5) + 2 = 27 but', foo.value)
