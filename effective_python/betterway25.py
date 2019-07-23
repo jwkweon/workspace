@@ -70,3 +70,50 @@ class ThisWay(TimesFive, PlusTwo):
 
 foo = ThisWay(5)
 print('Should be (5 * 5) + 2 = 27 but', foo.value)
+
+#Python2
+class TimesFiveCorrect(MyBaseClass):
+    def __init__(self, value):
+        super(TimesFiveCorrect, self).__init__(value)
+        self.value *= 5
+
+class PlusTwoCorrect(MyBaseClass):
+    def __init__(self, value):
+        super(PlusTwoCorrect, self).__init__(value)
+        self.value += 2
+
+class GoodWay(TimesFiveCorrect, PlusTwoCorrect):
+    def __init__(self, value):
+        super(GoodWay, self).__init__(value)
+
+foo = GoodWay(5)
+print(foo.value)
+
+from pprint import pprint
+
+pprint(GoodWay.mro())
+'''
+    [<class '__main__.GoodWay'>,
+    <class '__main__.TimesFiveCorrect'>,
+    <class '__main__.PlusTwoCorrect'>,
+    <class '__main__.MyBaseClass'>,
+    <class 'object'>]
+    GoodWay(5)를 호출하면 이 생성자는 TimesFiveCorrect.__init__을 호출하고
+    이는 PlusTwoCorrect.__init__을 호출하며 이는 다시 MyBaseClass.__init__을
+    호출한다.
+    이런 호출이 다이아몬드의 꼭대기에 도달하면, 모든 초기화 메서드는 실제 __init__
+    함수가 호출된 순서의 역순으로 실행된다.
+    따라서 value는 5 => +2 = 7 => *5 = 35 의 순서로 바뀐다.
+'''
+
+#Python3
+class Explicit(MyBaseClass):
+    def __init__(self, value):
+        super(__class__, self).__init__(value * 2)
+
+class Implicit(MyBaseClass):
+    def __init__(self, value):
+        super().__init__(value * 2)
+
+assert Explicit(10).value == Implicit(10).value
+print(Explicit(10).value, Implicit(10).value)
