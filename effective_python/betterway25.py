@@ -119,7 +119,8 @@ assert Explicit(10).value == Implicit(10).value
 print(Explicit(10).value, Implicit(10).value)
 
 
-A = ['a', 'a', 'd', 'd', 'c', 'e', 'e', 'e', 'e', 'c', 'e', 'e', 'g', 'g', 'g', 'c', 'h', 'h', 'h', 'h', 'h', 'a', 'a']
+A = ['a', 'a', 'd', 'd', 'c', 'e', 'e', 'e', 'e', 'c', 'e', 'e', 'g', 'g', 'g',
+    'c', 'h', 'h', 'h', 'h', 'h', 'a', 'a']
 l = ['a', 'c', 'e', 'd', 'g', 'h']
 
 n = [A.count(i) for i in l]
