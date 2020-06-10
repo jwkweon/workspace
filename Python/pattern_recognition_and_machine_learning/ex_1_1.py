@@ -61,6 +61,7 @@ if name == '__main__':
     mu, sigma = 0, 0.3  # mean, standard deviation
     sample_num = 10
     degree = 3
+    learning_rate = 0.01
     trainset, targetset = get_training_n_target_set(sample_num, mu, sigma)
     w = init_w(degree+1)
     w
