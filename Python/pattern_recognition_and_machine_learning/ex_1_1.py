@@ -20,29 +20,65 @@ def get_training_n_target_set(num, mu, sigma):
 def get_target_data(x_list):
     PI = np.pi
     target = [np.sin(i*PI) for i in x_list]
+
     return target
 
+
+def init_w(num):
+    w = np.random.normal(size=num)
+
+    return w
+
+
+def get_polynomial(degree, w, x):
+    hypothesis = []
+    for j in x:
+        result = 0
+        for i in range(degree+1):
+            result += w[i] * (j ** i)
+        hypothesis.append(result)
+
+    return hypothesis
+
+
+def get_diff_poly(degree, w, x):
+    diff = 0
+    for i in range(degree + 1):
+        if i > 0:
+            diff += i * w[i] * (x ** (i-1))
+    return diff
+
+
+def get_error(degree, w, x, t):
+    error = (1/2) * sum((get_polynomial(degree, w, x) -
+                         np.transpose(t[:, 1:])) ** 2)
+    return error
+
+
+w = [1, 2, 3]
+x = [1, 2, 3]
+np.array(w)*np.array(x)
+
+
+if name == '__main__':
+    mu, sigma = 0, 0.3  # mean, standard deviation
+    sample_num = 10
+    degree = 3
+    trainset, targetset = get_training_n_target_set(sample_num, mu, sigma)
+    w = init_w(degree+1)
+    w
+    get_error(degree, w, trainset[:, :1], trainset)
+
+
 # trainset[:, 1:]
+np.transpose(targetset[:, 1:])
 
-
-trainset, targetset = get_training_n_target_set(10, 0, 0.3)
 plt.plot(trainset[:, 1:], linewidth=2, color='r')
-plt.plot(targetset, linewidth=2, color='b')
+plt.plot(targetset[:, 1:], linewidth=2, color='b')
 
 trainset[:, 0:-1]
 
 
-plt.plot(m, linewidth=2, color='r')
-plt.show()
-
-np.random.seed(100)
-noise = np.random.normal(size=10, )
-noise
-
-np.random.multivariate_normal(any)
-
-mu, sigma = 0, 0.3  # mean, standard deviation
-sample_num = 10
 gaussian_noise = np.random.normal(mu, sigma, sample_num)
 
 # sample들의 historgram을 출력한다.
