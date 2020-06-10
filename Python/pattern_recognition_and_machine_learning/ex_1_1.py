@@ -36,20 +36,27 @@ def get_polynomial(degree, w, x):
         result = 0
         for i in range(degree+1):
             result += w[i] * (j ** i)
-        hypothesis.append(result)
+        hypothesis.append(result[0])
 
     return hypothesis
 
+def get_error(degree, w, x, t):
+    error = 0.5 * np.sum((get_polynomial(degree, w, x) -
+                         np.transpose(t[:, 1:])) ** 2, axis=-1)
+    error = 0.5 * (get_polynomial(degree, w, x) - np.transpose(t[:, 1:])) ** 2
+    return error
 
 def get_diff(degree, w, x, t):
-    diff = sum(get_polynomial(degree, w, x) - np.transpose(t[:, 1:]))
+    diff = get_polynomial(degree, w, x) - np.transpose(t[:, 1:])
     return diff
 
 
-def get_error(degree, w, x, t):
-    error = (1/2) * sum((get_polynomial(degree, w, x) -
-                         np.transpose(t[:, 1:])) ** 2)
-    return error
+def update_w(degree, w, x, t):
+    print(w)
+    print(get_diff(degree, w, x, t))
+    new_w = 0
+    return new_w
+
 
 
 w = [1, 2, 3]
@@ -64,8 +71,8 @@ if name == '__main__':
     learning_rate = 0.01
     trainset, targetset = get_training_n_target_set(sample_num, mu, sigma)
     w = init_w(degree+1)
-    w
     get_error(degree, w, trainset[:, :1], trainset)
+    update_w(degree, w, trainset[:, :1], trainset)
 
 
 # trainset[:, 1:]
