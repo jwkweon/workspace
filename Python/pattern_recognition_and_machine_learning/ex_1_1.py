@@ -41,11 +41,8 @@ def get_polynomial(degree, w, x):
     return hypothesis
 
 
-def get_diff_poly(degree, w, x):
-    diff = 0
-    for i in range(degree + 1):
-        if i > 0:
-            diff += i * w[i] * (x ** (i-1))
+def get_diff(degree, w, x, t):
+    diff = sum(get_polynomial(degree, w, x) - np.transpose(t[:, 1:]))
     return diff
 
 
