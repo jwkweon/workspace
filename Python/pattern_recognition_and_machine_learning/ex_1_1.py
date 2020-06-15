@@ -40,11 +40,13 @@ def get_polynomial(degree, w, x):
 
     return hypothesis
 
+
 def get_error(degree, w, x, t):
     error = 0.5 * np.sum((get_polynomial(degree, w, x) -
-                         np.transpose(t[:, 1:])) ** 2, axis=-1)
+                          np.transpose(t[:, 1:])) ** 2, axis=-1)
     error = 0.5 * (get_polynomial(degree, w, x) - np.transpose(t[:, 1:])) ** 2
     return error
+
 
 def get_diff(degree, w, x, t):
     diff = get_polynomial(degree, w, x) - np.transpose(t[:, 1:])
@@ -52,11 +54,10 @@ def get_diff(degree, w, x, t):
 
 
 def update_w(degree, w, x, t):
-    print(w)
-    print(get_diff(degree, w, x, t))
+    print('w', w)
+    print('diff', get_diff(degree, w, x, t))
     new_w = 0
     return new_w
-
 
 
 w = [1, 2, 3]
