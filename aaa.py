@@ -63,6 +63,7 @@ img_resize = img_resize[:][:][:] + 0
 #b = img_resize[:][:][2]  + 100
 
 print(img_resize.shape)
+print(".")
 
 plt.imshow(img_resize)
 
