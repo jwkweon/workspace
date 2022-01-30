@@ -65,7 +65,7 @@ x = [1, 2, 3]
 np.array(w)*np.array(x)
 
 
-if name == '__main__':
+if __name__ == '__main__':
     mu, sigma = 0, 0.3  # mean, standard deviation
     sample_num = 10
     degree = 3
